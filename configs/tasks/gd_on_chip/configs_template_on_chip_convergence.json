@@ -1,0 +1,45 @@
+{
+    "algorithm": "gradient_descent",
+    "results_path": "tmp/output/gd_on_chip_accuracy_tests/convergence",
+    "experiment_name": "data.pickle",   
+    "nr_experiments": 1,  
+    "hyperparameters": {
+        "save_interval": 10
+    },
+    "processor": {
+        "architecture": "single_device",
+        "platform": "hardware",
+        "processor_type": "cdaq_to_cdaq",
+        "driver": {
+            "driver_type": "remote",
+            "uri": "PYRO:obj_1b24d89ec5514330a61ac349a6caab25@192.168.1.5:8081"
+        },
+        "amplification": 100.0,
+        "sampling_frequency": 10000,
+        "input_indices": [2,1,8,0,7,4,6],
+        "input_channels": [2,1,8,0,7,4,6],
+        "output_channels": [7],
+        "input_electrode_no": 7,
+        "output_clipping_value": 3.4,
+        "shape": 100
+    },
+    "sample_times": {
+        "start": 0.05,
+        "stop": 10,
+        "steps": 200
+    },
+    "waveform": {
+        "repetitions": 10,
+        "wavelengths": 10,
+        "phase_threshold": 90,
+        "ramp_length": 0.03,    
+        "amplitude_sines": [0.03, 0.02, 0.02, 0.01, 0.01, 0.005, 0.005],
+        "frequencies": [2, 5, 3, 9, 13, 19, 23],
+        "frequency_factor": 10,
+        "input_range": [[-0.5, 1.2], [-0.5, 1.2], [-0.5, 1.2], [-0.5, 1.2], [-0.5, 1.2], [-0.5, 1.2], [-0.5, 1.2]]
+    },
+    "checkpoints": {
+        "use_checkpoints": false,
+        "save_interval": 1
+    } 
+}
