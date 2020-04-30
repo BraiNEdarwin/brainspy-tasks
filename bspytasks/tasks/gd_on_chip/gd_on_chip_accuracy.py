@@ -14,7 +14,7 @@ if __name__ == '__main__':
     configs_amplitudes = load_configs('/configs/tasks/gd_on_chip/configs_template_on_chip_multiwave_accuracy_amplitudes.json')
 
     for mult_exps in range(configs_multiwave["nr_experiments"]):
-        inputs = np.random.random(configs_multiwave["processor"]["input_electrode_no"])*(np.array(configs_multiwave["waveform"]["input_range"])[:,1] - np.array(configs_multiwave["waveform"]["input_range"])[:,0]) + np.array(configs_multiwave["waveform"]["input_range"])[:,0]
+        inputs = np.random.random(configs_multiwave["processor"]["input_electrode_no"]) * (np.array(configs_multiwave["waveform"]["input_range"])[:, 1] - np.array(configs_multiwave["waveform"]["input_range"])[:, 0]) + np.array(configs_multiwave["waveform"]["input_range"])[:, 0]
         input_waveforms, outputs, IV_gradients = multiwave_accuracy(inputs, configs_multiwave)
         save('pickle', configs_multiwave["results_path"],configs_multiwave["experiment_name"], 
                                                 data = {"config":configs_multiwave,
@@ -26,7 +26,7 @@ if __name__ == '__main__':
         del input_waveforms, outputs, IV_gradients # Delete arrays to save space for next experiments.
 
     for convergence_exps in range(configs_convergence["nr_experiments"]):
-        inputs = np.random.random(configs_convergence["processor"]["input_electrode_no"])*(np.array(configs_convergence["waveform"]["input_range"])[:,1] - np.array(configs_convergence["waveform"]["input_range"])[:,0]) + np.array(configs_convergence["waveform"]["input_range"])[:,0]
+        inputs = np.random.random(configs_convergence["processor"]["input_electrode_no"]) * (np.array(configs_convergence["waveform"]["input_range"])[:, 1] - np.array(configs_convergence["waveform"]["input_range"])[:, 0]) + np.array(configs_convergence["waveform"]["input_range"])[:, 0]
         input_waveforms, outputs, IV_gradients, sample_times = convergence(inputs, configs_convergence)
         save('pickle', configs_convergence["results_path"],configs_convergence["experiment_name"], 
                                                 data = {"config": configs_convergence,
@@ -51,7 +51,7 @@ if __name__ == '__main__':
         del input_waveforms, outputs, IV_gradients, controls, t
 
     for multiwave_amps_exps in range(configs_amplitudes["nr_experiments"]):
-        inputs = np.random.random(configs_amplitudes["processor"]["input_electrode_no"])*(np.array(configs_amplitudes["waveform"]["input_range"])[:,1] - np.array(configs_amplitudes["waveform"]["input_range"])[:,0]) + np.array(configs_amplitudes["waveform"]["input_range"])[:,0]
+        inputs = np.random.random(configs_amplitudes["processor"]["input_electrode_no"]) * (np.array(configs_amplitudes["waveform"]["input_range"])[:, 1] - np.array(configs_amplitudes["waveform"]["input_range"])[:, 0]) + np.array(configs_amplitudes["waveform"]["input_range"])[:, 0]
         input_waveforms, outputs, IV_gradients, t = multiwave_accuracy_amplitudes(inputs, configs_amplitudes)
         save('pickle', configs_amplitudes["results_path"], configs_amplitudes["experiment_name"], 
                                                 data = {"config": configs_amplitudes,

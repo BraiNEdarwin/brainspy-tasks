@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from bspyalgo.utils.io import create_directory_timestamp, save
-from bspyalgo.algorithms.gradient.gd_on_chip import OnChipGD
-from bspyalgo.algorithms.gradient.core import input_tasks     
+from bspyalgo.algorithms.gradient_on_chip.gd_on_chip import OnChipGD
+from bspyalgo.algorithms.gradient_on_chip.core import input_tasks     
 
 def task_selector(task, configs):
     if configs["task_type"] == "Boolean":
